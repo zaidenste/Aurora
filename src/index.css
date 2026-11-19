@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --aurora-bg: #0c1230;
+    --aurora-surface-1: #141b42;
+    --aurora-surface-2: #1c2559;
+    --aurora-input: #0f1538;
+    --aurora-violet: #7b5cff;
+    --aurora-violet-hover: #8e73ff;
+    --aurora-green: #43e6a8;
+    --aurora-coral: #ff5c7a;
+    --aurora-amber: #ffc247;
+    --aurora-text: #eef0ff;
+    --aurora-text-secondary: #cbd5e8;
+    --aurora-text-muted: #93a2c4;
+    --aurora-border: rgba(255, 255, 255, 0.1);
+  }
+
+  html {
+    background-color: var(--aurora-bg);
+    color: var(--aurora-text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--aurora-bg);
+    color: var(--aurora-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  .font-mono,
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+}
+
+.aurora-card {
+  background: rgba(20, 27, 66, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+.aurora-card-solid {
+  background: #141b42;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+.aurora-card-interactive {
+  background: rgba(20, 27, 66, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  transition: border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aurora-card-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px -4px rgba(12, 18, 48, 0.8),
+    0 0 24px -2px rgba(123, 92, 255, 0.14);
+}
+
+.aurora-input {
+  background-color: #0f1538;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  color: #eef0ff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.aurora-input::placeholder {
+  color: rgba(203, 213, 232, 0.45);
+}
+
+.aurora-input:focus {
+  outline: none;
+  border-color: #7b5cff;
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.28);
+}
+
+.aurora-btn-primary {
+  background-color: #7b5cff;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+
+.aurora-btn-primary:hover:not(:disabled) {
+  background-color: #8e73ff;
+  box-shadow: 0 0 20px rgba(123, 92, 255, 0.45);
+}
+
+.aurora-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: 0 0 10px rgba(123, 92, 255, 0.6);
+}
+
+.aurora-btn-primary:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.aurora-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eef0ff;
+  font-weight: 500;
+  border-radius: 12px;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+.aurora-btn-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.aurora-btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.aurora-btn-green {
+  background-color: rgba(67, 230, 168, 0.14);
+  border: 1px solid rgba(67, 230, 168, 0.35);
+  color: #43e6a8;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+
+.aurora-btn-green:hover:not(:disabled) {
+  background-color: rgba(67, 230, 168, 0.2);
+  box-shadow: 0 0 18px rgba(67, 230, 168, 0.25);
+}
+
+.zaiden-glow {
+  transition: color 180ms ease, text-shadow 180ms ease;
+}
+
+.zaiden-glow:hover {
+  color: #43e6a8;
+  text-shadow: 0 0 14px rgba(67, 230, 168, 0.65);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .aurora-card,
+  .aurora-card-solid {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+  }
+}

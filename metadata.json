@@ -1,0 +1,6 @@
+{
+  "name": "Aurora",
+  "description": "Batch payroll built on Arc with automatic USDC and EURC conversion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
